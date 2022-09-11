@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/07/19 23:43:45 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/12 01:18:22 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_pile	*init()
     element->content = 0;
     element->next = NULL;
     pile->first = element;
-
     return (pile);
 }
 
@@ -44,7 +43,7 @@ void	show_list(t_pile *pile)
     t_element *now = pile->first;
     while (now != NULL)
     {
-        printf("%d -> ", now->content);
+        printf("%d\n", now->content);
         now = now->next;
     }
 }

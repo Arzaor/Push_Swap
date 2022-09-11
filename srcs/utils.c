@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 20:54:55 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/12 01:09:49 by jbarette         ###   ########.fr       */
+/*   Created: 2022/09/12 00:34:31 by jbarette          #+#    #+#             */
+/*   Updated: 2022/09/12 01:09:51 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_array(char **array)
 {
-	char	**tmp;
+	int	i;
 
-	if (argc <= 0)
-		ft_exit();
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else
-		argv = delete_element_tab(argv, argc, 0);
-	parsing(argv, argc - 1);
-	return (0);
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	free(array);
+	array = NULL;
+}
+
+char	**delete_element_tab(char **argv, int argc, int pos)
+{
+	int i;
+
+	i = pos;
+	while (i < argc - 1)
+	{
+		argv[i] = argv[i + 1];
+		i++;
+	}
+	return (argv);
 }

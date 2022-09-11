@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/07/19 23:43:48 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/12 01:10:03 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ void	show_list(t_pile *pile);
 void	ft_exit();
 
 //PARSING
-void	parsing(char **argv);
+void	parsing(char **argv, int argc);
+
+// UTILS
+void	free_array(char **array);
+char	**delete_element_tab(char **argv, int argc, int pos);
 
 #endif

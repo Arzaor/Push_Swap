@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/07/19 23:44:12 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/12 01:16:32 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	parsing_letter(char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (argv[i])
 	{
@@ -32,22 +32,22 @@ static void	parsing_letter(char **argv)
 	}
 }
 
-static t_pile	*fill_pileA(char **argv, t_pile *pile)
+static t_pile	*fill_pileA(char **argv, int argc, t_pile *pile)
 {
 	int	i;
 
-	i = 1;
-	while (argv[i])
-		pile = new_element(pile, ft_atoi(argv[i++]));
+	i = argc;
+	while (i >= 0)
+		pile = new_element(pile, ft_atoi(argv[i--]));
 	return (pile);
 }
 
-void	parsing(char **argv)
+void	parsing(char **argv, int argc)
 {
 	t_pile	*pileA;
 
 	pileA = init();
 	parsing_letter(argv);
-	pileA = fill_pileA(argv, pileA);
+	pileA = fill_pileA(argv, argc, pileA);
 	show_list(pileA);
 }
