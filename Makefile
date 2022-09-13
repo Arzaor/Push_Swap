@@ -6,7 +6,7 @@
 #    By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 13:09:02 by jbarette          #+#    #+#              #
-#    Updated: 2022/09/12 00:34:54 by jbarette         ###   ########.fr        #
+#    Updated: 2022/09/13 14:46:04 by jbarette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INC_DIR 	= 	includes/
 SRC 		=	main.c \
 				parsing.c \
 				exit.c \
-				ft_list.c \
+				list.c \
 				utils.c \
 				
 SRCS 		= 	$(addprefix ${SRC_DIR}, ${SRC})
