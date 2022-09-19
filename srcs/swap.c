@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 00:34:31 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/19 13:41:56 by jbarette         ###   ########.fr       */
+/*   Created: 2022/09/19 11:31:14 by jbarette          #+#    #+#             */
+/*   Updated: 2022/09/19 14:14:23 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**delete_element_tab(char **argv, int argc, int pos)
+t_pile	*swap(t_pile *pile, int opt)
 {
-	int i;
+	int	*tab_pile;
+	int	length_pile;
+	int	i;
+	int	tmp;
 
-	i = pos;
-	while (i < argc)
-	{
-		argv[i] = argv[i + 1];
-		i++;
-	}
-	return (argv);
+	tab_pile = cpy_pile(pile);
+	length_pile = length(pile);
+	tmp = tab_pile[0];
+	tab_pile[0] = tab_pile[1];
+	tab_pile[1] = tmp;
+	clear(&pile);
+	pile = fill_1d_pile(tab_pile, length_pile, pile);
+	if (opt)
+		ft_putstr_fd("sa\n", 1);
+	else
+		ft_putstr_fd("sb\n", 1);
+	free(tab_pile);
+	return (pile);
 }
 
-int	*cpy_pile(t_pile *pile)
+void	swap_ss(t_pile *pileA, t_pile *pileB)
 {
-	int length_pile;
-	int	*tab_pile;
-	int	i;
-
-	length_pile = length(pile);
-	tab_pile = malloc(sizeof(int) * length_pile);
-	i = 0;
-	while (i < length_pile)
-	{
-		tab_pile[i] = pile->nombre;
-		pile = pile->prec;
-		i++;
-	}
-	return (tab_pile);
+	swap(pileA, 1);
+	swap(pileB, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/19 10:51:31 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/19 13:32:55 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,30 +91,13 @@ static int	parsing_order(char **argv)
 	return (1);
 }
 
-// A RETIRER DE CE FICHIER
-static void	fill_pileA(char **argv, int argc, t_pile *pile)
-{
-	int	i;
-
-	i = argc - 1;
-	while (i >= 0)
-		pile = new_element(pile, ft_atoi(argv[i--]));
-}
-
 void	parsing(char **argv, int argc)
 {
-	t_pile	*pileA;
-
-	pileA = init();
 	parsing_letter(argv);
 	parsing_min_max(argv);
 	parsing_doublon(argv);
 	if (parsing_order(argv))
-		printf("Order");
+		ft_putstr_fd("Order", 1);
 	else
-	{
-		fill_pileA(argv, argc, pileA);
-		show_list(pileA);
-	}
-	free(pileA);
+		treatment(argv, argc);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:00:17 by jbarette          #+#    #+#             */
-/*   Updated: 2022/07/18 21:05:26 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/19 13:32:39 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_exit()
 {
-	printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

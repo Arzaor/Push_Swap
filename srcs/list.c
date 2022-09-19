@@ -3,53 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/13 16:00:24 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:16:04 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pile	*init()
+void	push(t_pile **p, int value)
 {
-    t_pile *pile;
-    t_element *element;
-
-	pile = malloc(sizeof(*pile));
-	element = malloc(sizeof(*element));
-    if (pile == NULL || element == NULL)
-        exit(EXIT_FAILURE);
-    element->content = 0;
-    element->next = NULL;
-    pile->first = element;
-    return (pile);
+	t_pile *element = malloc(sizeof(t_pile));
+	if (!element)
+		exit(EXIT_FAILURE);
+	element->nombre = value;
+	element->prec = *p;
+	*p = element;
 }
 
-t_pile	*new_element(t_pile *pile, int content)
+int	pop(t_pile **p)
 {
-    t_element *new;
-	
-	new = malloc(sizeof(*new));
-    if (pile == NULL || new == NULL)
-        exit(EXIT_FAILURE);
-    new->content = content;
-    new->next = pile->first;
-    pile->first = new;
-	return (pile);
+	int		value;
+	t_pile	*tmp;
+
+	if (!*p)
+		return (-1);
+	tmp = (*p)->prec;
+	value = (*p)->nombre;
+	free(*p);
+	*p = tmp;
+	return value;
 }
 
-void	show_list(t_pile *pile)
+void	clear(t_pile **p)
 {
-	t_element *now;
+	t_pile	*tmp;
 
-    if (pile == NULL)
-        exit(EXIT_FAILURE);
-   	now = pile->first;
-    while (now != NULL)
-    {
-        printf("%d\n", now->content);
-        now = now->next;
-    }
+	while (*p)
+	{
+		tmp = (*p)->prec;
+		free(*p);
+		*p = tmp;
+	}
+}
+
+int		length(t_pile *p)
+{
+	int	n;
+
+	n = 0;
+	while (p)
+	{
+		n++;
+		p = p->prec;
+	}
+	return n;
+}
+
+void	view(t_pile *p)
+{
+	while (p)
+	{
+		printf("%d\n", p->nombre);
+		p = p->prec;
+	}
 }
