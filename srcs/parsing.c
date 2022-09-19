@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/13 16:46:13 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:51:31 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ static void	parsing_doublon(char **argv)
 	}
 }
 
+static int	parsing_order(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i + 1] != NULL)
+		{
+			if (ft_atoi(argv[i + 1]) < ft_atoi(argv[i]))
+				return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
+// A RETIRER DE CE FICHIER
 static void	fill_pileA(char **argv, int argc, t_pile *pile)
 {
 	int	i;
@@ -91,7 +109,12 @@ void	parsing(char **argv, int argc)
 	parsing_letter(argv);
 	parsing_min_max(argv);
 	parsing_doublon(argv);
-	// fill_pileA(argv, argc, pileA);
-	show_list(pileA);
+	if (parsing_order(argv))
+		printf("Order");
+	else
+	{
+		fill_pileA(argv, argc, pileA);
+		show_list(pileA);
+	}
 	free(pileA);
 }
