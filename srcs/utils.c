@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:34:31 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/19 13:41:56 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:14:03 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,21 @@ char	**delete_element_tab(char **argv, int argc, int pos)
 	return (argv);
 }
 
-int	*cpy_pile(t_pile *pile)
+int	*cpy_pile(t_liste *pile)
 {
-	int length_pile;
-	int	*tab_pile;
-	int	i;
+	int 		length_pile;
+	int			*tab_pile;
+	int			i;
+	t_element	*now;
 
 	length_pile = length(pile);
 	tab_pile = malloc(sizeof(int) * length_pile);
 	i = 0;
+	now = pile->first;
 	while (i < length_pile)
 	{
-		tab_pile[i] = pile->nombre;
-		pile = pile->prec;
+		tab_pile[i] = now->number;
+		now  = now->next;
 		i++;
 	}
 	return (tab_pile);

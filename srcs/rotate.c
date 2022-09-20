@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 20:54:55 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 14:38:10 by jbarette         ###   ########.fr       */
+/*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
+/*   Updated: 2022/09/20 15:13:17 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	rotate(t_liste *pile, int opt)
 {
-	char	**tmp;
-	t_liste	*pileA;
-	t_liste	*pileB;
+	int			*tab;
+	int			tmp;
+	t_element	*now;
+	int			i;
 
-	pileA = init();
-	pileB = init();
-	if (argc <= 0)
-		ft_exit();
-	else if (argc == 2)
+	tab = malloc(sizeof(int) * length(pile));
+	tmp = pile->first->number;
+	now = pile->first->next;
+	i = 0;
+	while (i < length(pile) - 1)
 	{
-		argv = ft_split(argv[1], ' ');
-		argc = 0;
-		while (argv[argc])
-			argc++;
+		tab[i] = now->number;
+		now = now->next;
+		i++;
 	}
+	tab[i] = tmp;
+	clear(pile);
+	fill_1d_pile(tab, length(pile), pile);
+	if (opt)
+		ft_putstr_fd("ra\n", 1);
 	else
-		argv = delete_element_tab(argv, argc, 0);
-	parsing(argv, argc - 1);
-	treatment(argv, argc, pileA, pileB);
-	clear(pileA);
-	return (0);
+		ft_putstr_fd("rb\n", 1);
 }

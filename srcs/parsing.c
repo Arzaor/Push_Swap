@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/19 13:32:55 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:43:51 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,5 @@ void	parsing(char **argv, int argc)
 	parsing_letter(argv);
 	parsing_min_max(argv);
 	parsing_doublon(argv);
-	if (parsing_order(argv))
-		ft_putstr_fd("Order", 1);
-	else
-		treatment(argv, argc);
+	parsing_order(argv);
 }
