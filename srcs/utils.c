@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:34:31 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 14:14:03 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:02:01 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,29 @@ int	*cpy_pile(t_liste *pile)
 		i++;
 	}
 	return (tab_pile);
+}
+
+int	*sort_tab(int *pile_tab, int size)
+{
+	int x;
+	int	y;
+	int	tmp;
+
+	x = 0;
+	while (x <= size - 1)
+	{
+		y = 0;
+		while (y <= size - 2)
+		{
+			if (pile_tab[y] > pile_tab[x])
+			{
+				tmp = pile_tab[x];
+				pile_tab[x] = pile_tab[y];
+				pile_tab[y] = tmp;
+			}
+			y++;
+		}
+		x++;
+	}
+	return (pile_tab);
 }

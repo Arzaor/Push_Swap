@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 14:59:59 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:32:19 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	rotate(t_liste *pile, int opt);
 // UTILS
 char	**delete_element_tab(char **argv, int argc, int pos);
 int		*cpy_pile(t_liste *pile);
+int		*sort_tab(int *pile_tab, int size);
 
 #endif

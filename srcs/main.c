@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:55 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 14:38:10 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:57:56 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	main(int argc, char **argv)
 	parsing(argv, argc - 1);
 	treatment(argv, argc, pileA, pileB);
 	clear(pileA);
+	// while (1) ;
 	return (0);
 }
