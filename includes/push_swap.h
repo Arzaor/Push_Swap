@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 03:49:23 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:43:30 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct	s_element
 {
 		int					number;
+		int					group;
 		struct s_element	*next;
 }				t_element;
 
@@ -36,7 +37,8 @@ int		pop(t_liste *liste);
 void	clear(t_liste *liste);
 int		length(t_liste *liste);
 void	view(t_liste *liste);
-
+int		length_by_group(t_liste *liste, int group);
+int		search_max(t_liste *pile, int number);
 
 //EXIT
 void	ft_exit();
@@ -62,8 +64,14 @@ void	rotate(t_liste *pile, int opt);
 // REVERSE_ROTATE
 void	reverse_rotate(t_liste *pile, int opt);
 
+// SORTED_TWO
+void	sorted_two(t_liste *pile, int opt);
+
 // SORTED_THREE
 void	sorted_three(t_liste *pile);
+
+// SORTED_HUNDRED
+void	sorted_hundred(t_liste *pileA, t_liste *pileB);
 
 // UTILS
 char	**delete_element_tab(char **argv, int argc, int pos);

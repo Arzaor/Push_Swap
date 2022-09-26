@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 15:14:46 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:40:33 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,26 @@ void	clear(t_liste *liste)
     }
 }
 
+int	length_by_group(t_liste *liste, int group)
+{
+    t_element	*now;
+	int			n;
+
+	now = NULL;
+	n = 0;
+    if (liste == NULL)
+        exit(EXIT_FAILURE);
+	now = liste->first;
+    while (now->next != NULL)
+    {
+		if (now->group == group)
+			n++;
+        now = now->next;
+    }
+	return (n);
+}
+
+
 int	length(t_liste *liste)
 {
     t_element	*now;
@@ -101,7 +121,20 @@ void	view(t_liste *liste)
 	now = liste->first;
     while (now->next != NULL)
     {
-        printf("%d -> ", now->number);
+        printf("%d dans le groupe %d\n", now->number, now->group);
         now = now->next;
     }
+}
+
+int		search_max(t_liste *pile, int number)
+{
+	int	*sorted_tab;
+	int	i;
+	int	result;
+
+	sorted_tab = sort_tab(cpy_pile(pile), length(pile));
+	if (number == sorted_tab[length(pile) - 1])
+		return (1);
+	else
+		return (0);
 }
