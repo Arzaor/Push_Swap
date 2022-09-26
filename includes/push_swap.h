@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/22 16:47:38 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/26 03:49:23 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	push(t_liste *pileA, t_liste *pileB, int opt);
 
 // ROTATE
 void	rotate(t_liste *pile, int opt);
+
+// REVERSE_ROTATE
+void	reverse_rotate(t_liste *pile, int opt);
 
 // SORTED_THREE
 void	sorted_three(t_liste *pile);

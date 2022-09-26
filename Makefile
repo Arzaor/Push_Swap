@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+         #
+#    By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 13:09:02 by jbarette          #+#    #+#              #
-#    Updated: 2022/09/22 16:38:45 by jbarette         ###   ########.fr        #
+#    Updated: 2022/09/26 03:48:14 by jbarette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC 		=	main.c \
 				swap.c \
 				push.c \
 				rotate.c \
+				reverse_rotate.c \
 				sorted_three.c \
 
 SRCS 		= 	$(addprefix ${SRC_DIR}, ${SRC})
