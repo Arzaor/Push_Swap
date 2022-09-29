@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 13:43:30 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:25:34 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 typedef struct	s_element
 {
 		int					number;
-		int					group;
+		int					index;
+		int					pos;
 		struct s_element	*next;
 }				t_element;
 
@@ -46,10 +47,11 @@ void	ft_exit();
 //PARSING
 void	parsing(char **argv, int argc);
 
-// TREATMENT_PILE
+// TREATMENT
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB);
 void	fill_2d_pile(char **argv, int argc, t_liste *pile);
 t_liste	*fill_1d_pile(int *tab_pile, int argc, t_liste *pile);
+void	created_index(t_liste *pile);
 
 // SWAP
 void	swap(t_liste *pile, int opt);

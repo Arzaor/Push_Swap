@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/22 15:32:32 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:11:20 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	rotate(t_liste *pile, int opt)
 	tab[i - 1] = tmp;
 	clear(pile);
 	fill_1d_pile(tab, size, pile);
+	created_index(pile);
 	free(tab);
 	if (opt)
 		ft_putstr_fd("ra\n", 1);

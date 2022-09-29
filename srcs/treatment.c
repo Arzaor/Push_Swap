@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   treatment.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:25:56 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 13:44:26 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:27:38 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	fill_2d_pile(char **argv, int argc, t_liste *pile)
 
 	i = argc - 2;
 	while (i >= 0)
-	{
 		push_to_list(pile, ft_atoi(argv[i--]));
-		pile->first->group = 0;
-	}
 }
 
 t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile)
@@ -30,20 +27,50 @@ t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile)
 
 	i = length;
 	while (i >= 0)
-	{
 		push_to_list(pile, tab_pile[i--]);
-		pile->first->group = 0;
-	}
 	return (pile);
+}
+
+void	created_index(t_liste *pile)
+{
+	int			*tab;
+	t_element	*now;
+	int			i;
+	int			index;
+
+	tab = sort_tab(cpy_pile(pile), length(pile));
+	now = pile->first;
+	i = 0;
+	index = 1;
+	while (tab[i])
+	{
+		while (now->next != NULL)
+		{
+			if (tab[i] == now->number)
+				now->index = index++;
+			now = now->next;
+		}
+		now = pile->first;
+		i++;
+	}
+	now = pile->first;
+	i = 0;
+	while (now->next != NULL)
+	{
+		now->pos = i++;
+		now = now->next;
+	}
 }
 
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB)
 {
 	fill_2d_pile(argv, argc, pileA);
-	if (length(pileA) == 2)
+	created_index(pileA);
+	view(pileA);
+	/*if (length(pileA) == 2)
 		sorted_two(pileA, 1);
 	else if (length(pileA) == 3)
 		sorted_three(pileA);
-	else if (length(pileA) <= 100)
-		sorted_hundred(pileA, pileB);
+	else
+		sorted_hundred(pileA, pileB);*/
 }
