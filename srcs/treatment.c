@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:25:56 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 13:44:26 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:45:44 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	fill_2d_pile(char **argv, int argc, t_liste *pile)
 	}
 }
 
-t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile)
+t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile, int group)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile)
 	while (i >= 0)
 	{
 		push_to_list(pile, tab_pile[i--]);
-		pile->first->group = 0;
+		pile->first->group = group;
 	}
 	return (pile);
 }

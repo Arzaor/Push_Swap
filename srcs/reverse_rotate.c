@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 03:57:29 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:05:36 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	reverse_rotate(t_liste *pile, int opt)
 		i++;
 	}
 	clear(pile);
-	fill_1d_pile(new_tab, size, pile);
+	fill_1d_pile(new_tab, size, pile, 0);
 	free(old_tab);
 	free(new_tab);
 	if (opt)

@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 13:43:30 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:46:23 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	parsing(char **argv, int argc);
 // TREATMENT_PILE
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB);
 void	fill_2d_pile(char **argv, int argc, t_liste *pile);
-t_liste	*fill_1d_pile(int *tab_pile, int argc, t_liste *pile);
+t_liste	*fill_1d_pile(int *tab_pile, int argc, t_liste *pile, int group);
 
 // SWAP
 void	swap(t_liste *pile, int opt);
@@ -59,7 +59,7 @@ void	swap_ss(t_liste *pileA, t_liste *pileB);
 void	push(t_liste *pileA, t_liste *pileB, int opt);
 
 // ROTATE
-void	rotate(t_liste *pile, int opt);
+void	rotate(t_liste *pile, int opt, int group);
 
 // REVERSE_ROTATE
 void	reverse_rotate(t_liste *pile, int opt);
@@ -77,5 +77,7 @@ void	sorted_hundred(t_liste *pileA, t_liste *pileB);
 char	**delete_element_tab(char **argv, int argc, int pos);
 int		*cpy_pile(t_liste *pile);
 int		*sort_tab(int *pile_tab, int size);
+int		order(int *tab, int size);
+int		*created_tab_by_group(t_liste *pile, int group);
 
 #endif

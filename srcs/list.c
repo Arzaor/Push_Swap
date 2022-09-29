@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/26 13:40:33 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:43:37 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void push_to_list(t_liste *liste, int value)
     if (liste == NULL || new == NULL)
         exit(EXIT_FAILURE);
     new->number = value;
+	new->group = 0;
     new->next = liste->first;
     liste->first = new;
 }
