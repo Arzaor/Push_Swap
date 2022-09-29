@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/27 23:26:08 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:40:33 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_liste	*init()
     if (liste == NULL || element == NULL)
         exit(EXIT_FAILURE);
     element->number = 0;
-	element->index = 0;
     element->next = NULL;
     liste->first = element;
     return liste;
@@ -74,7 +73,6 @@ void	clear(t_liste *liste)
     }
 }
 
-/*
 int	length_by_group(t_liste *liste, int group)
 {
     t_element	*now;
@@ -93,7 +91,7 @@ int	length_by_group(t_liste *liste, int group)
     }
 	return (n);
 }
-*/
+
 
 int	length(t_liste *liste)
 {
@@ -123,7 +121,7 @@ void	view(t_liste *liste)
 	now = liste->first;
     while (now->next != NULL)
     {
-        printf("Nombre : %d\nIndex : %d\nPos : %d\n", now->number, now->index, now->pos);
+        printf("%d dans le groupe %d\n", now->number, now->group);
         now = now->next;
     }
 }
