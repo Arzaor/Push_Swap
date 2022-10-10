@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/29 14:43:37 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:33:45 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,13 +129,17 @@ void	view(t_liste *liste)
 
 int		search_max(t_liste *pile, int number)
 {
-	int	*sorted_tab;
-	int	i;
-	int	result;
+	t_element *now;
+	int	position;
 
-	sorted_tab = sort_tab(cpy_pile(pile), length(pile));
-	if (number == sorted_tab[length(pile) - 1])
-		return (1);
-	else
-		return (0);
+	now = pile->first;
+	position = 0;
+    while (now->next != NULL)
+    {
+		if (now->number == number)
+			break ;
+		position++;
+        now = now->next;
+    }
+	return (position);
 }

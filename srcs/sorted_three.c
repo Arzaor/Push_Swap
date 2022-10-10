@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:38:30 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/29 15:05:47 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:46:09 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	sorted_three(t_liste *pile)
 	else if (first > second && first > third && second < first && second < third && third < first && third > second)
 		rotate(pile, 1, 0);
 	else if (first < second && first > third && second > first && second > third && third < first && third < second)
-		reverse_rotate(pile, 0);
+		reverse_rotate(pile, 1);
 	else if (first < second && first < third && second > first && second > third && third > first && third < second)
 	{
 		reverse_rotate(pile, 1);

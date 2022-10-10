@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:25:56 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/29 14:45:44 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:23:21 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB)
 		sorted_two(pileA, 1);
 	else if (length(pileA) == 3)
 		sorted_three(pileA);
-	else if (length(pileA) <= 100)
+	else if (length(pileA) <= 500)
 		sorted_hundred(pileA, pileB);
 }
