@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:31:20 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 13:20:46 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:29:02 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	created_group_pileA(t_liste *pileA, t_liste *pileB)
 		mid = sorted_tab[(size / 2) - 1];
 		while (i < size)
 		{
-			if (mid >= pileA->first->number)
+			if (mid > pileA->first->number)
 			{
 				push(pileA, pileB, 0);
 				pileB->first->group = group;
@@ -73,7 +73,7 @@ void	sorted_hundred(t_liste *pileA, t_liste *pileB)
 	{
 		sorted_tab = sort_tab(cpy_pile(pileB), size);
 		number_max = sorted_tab[size - 1];
-		pos_max = search_max(pileB, number_max);
+		pos_max = search_position(pileB, number_max);
 		if (pos_max <= size / 2)
 		{
 			while (pos_max > 0)

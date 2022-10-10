@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 10:33:45 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:53:04 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	view(t_liste *liste)
     }
 }
 
-int		search_max(t_liste *pile, int number)
+int		search_position(t_liste *pile, int number)
 {
 	t_element *now;
 	int	position;
