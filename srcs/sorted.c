@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted_hundred.c                                   :+:      :+:    :+:   */
+/*   sorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:31:20 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 14:29:02 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:29:39 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	created_group_pileA(t_liste *pileA, t_liste *pileB)
+void	created_group_pileA(t_liste *pileA, t_liste *pileB)
 {
+	int	*cpy_tab;
 	int			*sorted_tab;
 	int			mid;
 	int			size;
 	int			i;
 	int			group;
-	t_element	*now;
 
+	cpy_tab = NULL;
 	sorted_tab = NULL;
 	mid = 0;
 	size = length(pileA);
 	i = 0;
 	group = 1;
-	now = NULL;
 	while (size > 3)
 	{
-		sorted_tab = sort_tab(cpy_pile(pileA), size);
-		mid = sorted_tab[(size / 2) - 1];
+		cpy_tab = cpy_pile(pileA);
+		sorted_tab = sort_tab(cpy_tab, size);
+		if (size % 2)
+			mid = sorted_tab[(size / 2)];
+		else
+			mid = sorted_tab[(size / 2) - 1];
 		while (i < size)
 		{
 			if (mid > pileA->first->number)
@@ -44,37 +48,31 @@ int	created_group_pileA(t_liste *pileA, t_liste *pileB)
 		}
 		i = 0;
 		group++;
-		free(sorted_tab);
+		free(cpy_tab);
 		size = length(pileA);
 	}
-	return (group - 1);
 }
 
-void	sorted_hundred(t_liste *pileA, t_liste *pileB)
+void	sorted(t_liste *pileA, t_liste *pileB)
 {
-	int			group;
-	t_element	*now;
-	int			*sorted_tab;
-	int			number_max;
-	int			pos_max;
-	int			size;
+	int	*cpy_tab;
+	int	*sorted_tab;
+	int	pos_max;
 
-	group = created_group_pileA(pileA, pileB);
-	now = NULL;
+	cpy_tab = NULL;
 	sorted_tab = NULL;
-	number_max = 0;
 	pos_max = 0;
-	size = length(pileB);
+	created_group_pileA(pileA, pileB);
 	if (length(pileA) == 2)
 		sorted_two(pileA, 1);
-	else
+	else if (length(pileA) == 3)
 		sorted_three(pileA);
 	while (length(pileB) > 0)
 	{
-		sorted_tab = sort_tab(cpy_pile(pileB), size);
-		number_max = sorted_tab[size - 1];
-		pos_max = search_position(pileB, number_max);
-		if (pos_max <= size / 2)
+		cpy_tab = cpy_pile(pileB);
+		sorted_tab = sort_tab(cpy_tab, length(pileB));
+		pos_max = search_position(pileB, sorted_tab[length(pileB) - 1]);
+		if (pos_max <= length(pileB) / 2)
 		{
 			while (pos_max > 0)
 			{
@@ -84,7 +82,7 @@ void	sorted_hundred(t_liste *pileA, t_liste *pileB)
 		}
 		else
 		{
-			pos_max = size - pos_max;
+			pos_max = length(pileB) - pos_max;
 			while (pos_max > 0)
 			{
 				reverse_rotate(pileB, 0);
@@ -92,6 +90,9 @@ void	sorted_hundred(t_liste *pileA, t_liste *pileB)
 			}
 		}
 		push(pileA, pileB, 1);
-		size = length(pileB);
+		free(cpy_tab);
 	}
+	// view(pileA);
+	// printf("\n\n");
+	// view(pileB);
 }

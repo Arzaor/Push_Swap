@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:25:56 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 13:23:21 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:34:42 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,5 @@ t_liste	*fill_1d_pile(int *tab_pile, int length, t_liste *pile, int group)
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB)
 {
 	fill_2d_pile(argv, argc, pileA);
-	if (length(pileA) == 2)
-		sorted_two(pileA, 1);
-	else if (length(pileA) == 3)
-		sorted_three(pileA);
-	else if (length(pileA) <= 500)
-		sorted_hundred(pileA, pileB);
+	sorted(pileA, pileB);
 }

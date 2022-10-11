@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/20 13:43:51 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:10:26 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	parsing_letter(char **argv)
 		while (argv[i][j])
 		{
 			if (!(ft_isdigit(argv[i][j])) && argv[i][j] != '-')
+				ft_exit();
+			if (argv[i][j] == '-' && (!argv[i][j + 1] || argv[i][j + 1] == '-'))
 				ft_exit();
 			j++;
 		}
@@ -91,10 +93,12 @@ static int	parsing_order(char **argv)
 	return (1);
 }
 
-void	parsing(char **argv, int argc)
+int	parsing(char **argv, int argc)
 {
 	parsing_letter(argv);
 	parsing_min_max(argv);
 	parsing_doublon(argv);
-	parsing_order(argv);
+	if (parsing_order(argv))
+		return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:55 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 13:20:34 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:00:49 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	main(int argc, char **argv)
 	}
 	else
 		argv = delete_element_tab(argv, argc, 0);
-	parsing(argv, argc - 1);
-	treatment(argv, argc, pileA, pileB);
+	if (parsing(argv, argc - 1))
+		treatment(argv, argc, pileA, pileB);
 	clear(pileA);
 	return (0);
 }

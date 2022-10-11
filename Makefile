@@ -6,7 +6,7 @@
 #    By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 13:09:02 by jbarette          #+#    #+#              #
-#    Updated: 2022/09/26 13:04:25 by jbarette         ###   ########.fr        #
+#    Updated: 2022/10/11 10:35:27 by jbarette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC 		=	main.c \
 				reverse_rotate.c \
 				sorted_two.c \
 				sorted_three.c \
-				sorted_hundred.c \
+				sorted.c \
 
 SRCS 		= 	$(addprefix ${SRC_DIR}, ${SRC})
 SRCS_ALL 	= 	${SRCS}

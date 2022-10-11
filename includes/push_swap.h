@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/10 13:53:04 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:00:33 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		search_position(t_liste *pile, int number);
 void	ft_exit();
 
 //PARSING
-void	parsing(char **argv, int argc);
+int	parsing(char **argv, int argc);
 
 // TREATMENT_PILE
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB);
@@ -71,7 +71,7 @@ void	sorted_two(t_liste *pile, int opt);
 void	sorted_three(t_liste *pile);
 
 // SORTED_HUNDRED
-void	sorted_hundred(t_liste *pileA, t_liste *pileB);
+void	sorted(t_liste *pileA, t_liste *pileB);
 
 // UTILS
 char	**delete_element_tab(char **argv, int argc, int pos);
