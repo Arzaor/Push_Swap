@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:13:44 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/12 09:38:10 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:40:33 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	push_to_list(t_liste *liste, int value)
 	if (liste == NULL || new == NULL)
 		exit(EXIT_FAILURE);
 	new->number = value;
-	new->group = 0;
 	new->next = liste->first;
 	liste->first = new;
 }
@@ -84,7 +83,7 @@ void	view(t_liste *liste)
 	now = liste->first;
 	while (now->next != NULL)
 	{
-		printf("%d dans le groupe %d\n", now->number, now->group);
+		printf("%d\n", now->number);
 		now = now->next;
 	}
 }

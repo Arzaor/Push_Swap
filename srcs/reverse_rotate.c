@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/12 09:54:21 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:40:39 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	reverse_rotate(t_liste *pile, int opt)
 	old_tab = cpy_pile(pile);
 	new_tab = reverse_rotate_tab(pile, old_tab, size);
 	clear(pile);
-	fill_1d_pile(new_tab, size, pile, 0);
+	fill_1d_pile(new_tab, size, pile);
 	free(old_tab);
 	free(new_tab);
 	if (opt)

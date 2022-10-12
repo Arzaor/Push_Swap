@@ -12,48 +12,77 @@
 
 #include "push_swap.h"
 
-void	created_group_pileA(t_liste *pileA, t_liste *pileB)
+static int	find_mediane(t_liste *pile_a, int size)
 {
 	int	*cpy_tab;
 	int	*sorted_tab;
+	int	quarter;
+	int	mid;
+
+	quarter = 0;
+	mid = 0;
+	cpy_tab = cpy_pile(pile_a);
+	sorted_tab = sort_tab(cpy_tab, size);
+	if (size <= 100)
+		quarter = size / 2;
+	else
+		quarter = size / 4;
+	if (size % 2)
+		mid = sorted_tab[quarter];
+	else
+		mid = sorted_tab[quarter - 1];
+	free(cpy_tab);
+	return (mid);
+}
+
+void	created_group_pile_a(t_liste *pile_a, t_liste *pile_b)
+{
 	int	mid;
 	int	size;
 	int	i;
-	int	group;
 
-	cpy_tab = NULL;
-	sorted_tab = NULL;
 	mid = 0;
-	size = length(pileA);
+	size = length(pile_a);
 	i = 0;
-	group = 1;
 	while (size > 3)
 	{
-		cpy_tab = cpy_pile(pileA);
-		sorted_tab = sort_tab(cpy_tab, size);
-		if (size % 2)
-			mid = sorted_tab[(size / 2)];
-		else
-			mid = sorted_tab[(size / 2) - 1];
+		mid = find_mediane(pile_a, size);
 		while (i < size)
 		{
-			if (mid > pileA->first->number)
-			{
-				push(pileA, pileB, 0);
-				pileB->first->group = group;
-			}
+			if (mid > pile_a->first->number)
+				push(pile_a, pile_b, 0);
 			else
-				rotate(pileA, 1, 1);
+				rotate(pile_a, 1);
 			i++;
 		}
 		i = 0;
-		group++;
-		free(cpy_tab);
-		size = length(pileA);
+		size = length(pile_a);
 	}
 }
 
-void	sorted(t_liste *pileA, t_liste *pileB)
+static void	big_sort(t_liste *pile_a, t_liste *pile_b, int pos_max)
+{
+	if (pos_max <= length(pile_b) / 2)
+	{
+		while (pos_max > 0)
+		{
+			rotate(pile_b, 0);
+			pos_max--;
+		}
+	}
+	else
+	{
+		pos_max = length(pile_b) - pos_max;
+		while (pos_max > 0)
+		{
+			reverse_rotate(pile_b, 0);
+			pos_max--;
+		}
+	}
+	push(pile_a, pile_b, 1);
+}
+
+void	sorted(t_liste *pile_a, t_liste *pile_b)
 {
 	int	*cpy_tab;
 	int	*sorted_tab;
@@ -62,34 +91,17 @@ void	sorted(t_liste *pileA, t_liste *pileB)
 	cpy_tab = NULL;
 	sorted_tab = NULL;
 	pos_max = 0;
-	created_group_pileA(pileA, pileB);
-	if (length(pileA) == 2)
-		sorted_two(pileA, 1);
-	else if (length(pileA) == 3)
-		sorted_three(pileA);
-	while (length(pileB) > 0)
+	created_group_pile_a(pile_a, pile_b);
+	if (length(pile_a) == 2)
+		sorted_two(pile_a, 1);
+	else if (length(pile_a) == 3)
+		sorted_three(pile_a);
+	while (length(pile_b) > 0)
 	{
-		cpy_tab = cpy_pile(pileB);
-		sorted_tab = sort_tab(cpy_tab, length(pileB));
-		pos_max = search_position(pileB, sorted_tab[length(pileB) - 1]);
-		if (pos_max <= length(pileB) / 2)
-		{
-			while (pos_max > 0)
-			{
-				rotate(pileB, 0, 0);
-				pos_max--;
-			}
-		}
-		else
-		{
-			pos_max = length(pileB) - pos_max;
-			while (pos_max > 0)
-			{
-				reverse_rotate(pileB, 0);
-				pos_max--;
-			}
-		}
-		push(pileA, pileB, 1);
+		cpy_tab = cpy_pile(pile_b);
+		sorted_tab = sort_tab(cpy_tab, length(pile_b));
+		pos_max = search_position(pile_b, sorted_tab[length(pile_b) - 1]);
+		big_sort(pile_a, pile_b, pos_max);
 		free(cpy_tab);
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/12 09:32:37 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:35:47 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_liste *pile, int opt, int group)
+void	rotate(t_liste *pile, int opt)
 {
 	int			size;
 	int			*tab;
@@ -33,7 +33,7 @@ void	rotate(t_liste *pile, int opt, int group)
 	}
 	tab[i - 1] = tmp;
 	clear(pile);
-	fill_1d_pile(tab, size, pile, group);
+	fill_1d_pile(tab, size, pile);
 	free(tab);
 	if (opt)
 		ft_putstr_fd("ra\n", 1);

@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:02:57 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/12 09:34:14 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:10:08 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static int	parsing_order(char **argv)
 	return (1);
 }
 
-int	parsing(char **argv, int argc)
+int	parsing(char **argv)
 {
 	parsing_letter(argv);
 	parsing_min_max(argv);

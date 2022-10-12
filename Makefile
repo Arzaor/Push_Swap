@@ -6,7 +6,7 @@
 #    By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 13:09:02 by jbarette          #+#    #+#              #
-#    Updated: 2022/10/11 10:35:27 by jbarette         ###   ########.fr        #
+#    Updated: 2022/10/12 13:09:42 by jbarette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRCS_ALL 	= 	${SRCS}
 OBJS 		= 	$(SRCS:.c=.o)
 
 CC			= 	gcc
-# CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 LIB_RDL 	= 	./libft/libft.a
 

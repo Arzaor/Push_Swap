@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:12 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/12 09:46:23 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:10:32 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_element
 {
 	int					number;
-	int					group;
 	struct s_element	*next;
 }						t_element;
 
@@ -41,7 +40,7 @@ void	clear(t_liste *liste);
 void	view(t_liste *liste);
 
 //PARSING
-int		parsing(char **argv, int argc);
+int		parsing(char **argv);
 
 // PUSH
 void	push(t_liste *pileA, t_liste *pileB, int opt);
@@ -50,7 +49,7 @@ void	push(t_liste *pileA, t_liste *pileB, int opt);
 void	reverse_rotate(t_liste *pile, int opt);
 
 // ROTATE
-void	rotate(t_liste *pile, int opt, int group);
+void	rotate(t_liste *pile, int opt);
 
 // SORTED_THREE
 void	sorted_three(t_liste *pile);
@@ -67,7 +66,7 @@ void	swap_ss(t_liste *pileA, t_liste *pileB);
 
 // TREATMENT_PILE
 void	fill_2d_pile(char **argv, int argc, t_liste *pile);
-t_liste	*fill_1d_pile(int *tab_pile, int argc, t_liste *pile, int group);
+t_liste	*fill_1d_pile(int *tab_pile, int argc, t_liste *pile);
 void	treatment(char **argv, int argc, t_liste *pileA, t_liste *pileB);
 
 // UTILS
