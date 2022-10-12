@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:54:55 by jbarette          #+#    #+#             */
-/*   Updated: 2022/10/11 14:00:49 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:34:50 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	main(int argc, char **argv)
 {
 	char	**tmp;
-	t_liste	*pileA;
-	t_liste	*pileB;
+	t_liste	*pile_a;
+	t_liste	*pile_b;
 
-	pileA = init();
-	pileB = init();
+	pile_a = init();
+	pile_b = init();
 	if (argc <= 0)
 		ft_exit();
 	else if (argc == 2)
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	else
 		argv = delete_element_tab(argv, argc, 0);
 	if (parsing(argv, argc - 1))
-		treatment(argv, argc, pileA, pileB);
-	clear(pileA);
+		treatment(argv, argc, pile_a, pile_b);
+	clear(pile_a);
 	return (0);
 }

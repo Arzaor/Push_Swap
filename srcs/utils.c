@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 00:34:31 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/29 13:48:17 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:38:15 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**delete_element_tab(char **argv, int argc, int pos)
 {
-	int i;
+	int	i;
 
 	i = pos;
 	while (i < argc)
@@ -27,7 +27,7 @@ char	**delete_element_tab(char **argv, int argc, int pos)
 
 int	*cpy_pile(t_liste *pile)
 {
-	int 		length_pile;
+	int			length_pile;
 	int			*tab_pile;
 	int			i;
 	t_element	*now;
@@ -39,28 +39,7 @@ int	*cpy_pile(t_liste *pile)
 	while (i < length_pile)
 	{
 		tab_pile[i] = now->number;
-		now  = now->next;
-		i++;
-	}
-	return (tab_pile);
-}
-
-int	*created_tab_by_group(t_liste *pile, int group)
-{
-	int 		length_pile;
-	int			*tab_pile;
-	int			i;
-	t_element	*now;
-
-	length_pile = length_by_group(pile, group);
-	tab_pile = malloc(sizeof(int) * length_pile);
-	i = 0;
-	now = pile->first;
-	while (i < length_pile)
-	{
-		if (group == now->group)
-			tab_pile[i] = now->number;
-		now  = now->next;
+		now = now->next;
 		i++;
 	}
 	return (tab_pile);
@@ -68,7 +47,7 @@ int	*created_tab_by_group(t_liste *pile, int group)
 
 int	*sort_tab(int *pile_tab, int size)
 {
-	int x;
+	int	x;
 	int	y;
 	int	tmp;
 
@@ -91,19 +70,37 @@ int	*sort_tab(int *pile_tab, int size)
 	return (pile_tab);
 }
 
-int	order(int *tab, int size)
+int	search_position(t_liste *pile, int number)
 {
-	int	i;
+	t_element	*now;
+	int			position;
 
-	i = 0;
-	while (i < size)
+	now = pile->first;
+	position = 0;
+	while (now->next != NULL)
 	{
-		if (tab[i + 1])
-		{
-			if (tab[i + 1] < tab[i])
-				return (0);
-		}
-		i++;
+		if (now->number == number)
+			break ;
+		position++;
+		now = now->next;
 	}
-	return (1);
+	return (position);
+}
+
+int	length(t_liste *liste)
+{
+	t_element	*now;
+	int			n;
+
+	now = NULL;
+	n = 0;
+	if (liste == NULL)
+		exit(EXIT_FAILURE);
+	now = liste->first;
+	while (now->next != NULL)
+	{
+		n++;
+		now = now->next;
+	}
+	return (n);
 }

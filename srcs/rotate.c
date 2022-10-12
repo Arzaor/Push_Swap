@@ -6,7 +6,7 @@
 /*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:51:26 by jbarette          #+#    #+#             */
-/*   Updated: 2022/09/29 14:45:37 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:32:37 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate(t_liste *pile, int opt, int group)
 	int			tmp;
 	t_element	*now;
 	int			i;
-	
+
 	size = length(pile);
 	tab = malloc(sizeof(int) * size + 1);
 	tmp = pile->first->number;

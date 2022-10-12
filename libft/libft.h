@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarette <jbarette@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: jbarette <jbarette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 13:17:38 by jbarette          #+#    #+#             */
-/*   Updated: 2022/07/19 22:45:03 by jbarette         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:40:12 by jbarette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE	1
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -40,7 +40,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *haystack, const char *needle, \
 					size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-long long				ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

@@ -15,11 +15,11 @@
 void	created_group_pileA(t_liste *pileA, t_liste *pileB)
 {
 	int	*cpy_tab;
-	int			*sorted_tab;
-	int			mid;
-	int			size;
-	int			i;
-	int			group;
+	int	*sorted_tab;
+	int	mid;
+	int	size;
+	int	i;
+	int	group;
 
 	cpy_tab = NULL;
 	sorted_tab = NULL;
@@ -92,7 +92,4 @@ void	sorted(t_liste *pileA, t_liste *pileB)
 		push(pileA, pileB, 1);
 		free(cpy_tab);
 	}
-	// view(pileA);
-	// printf("\n\n");
-	// view(pileB);
 }
