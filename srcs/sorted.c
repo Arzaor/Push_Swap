@@ -26,7 +26,7 @@ static int	find_mediane(t_liste *pile_a, int size)
 	if (size <= 100)
 		quarter = size / 2;
 	else
-		quarter = size / 4;
+		quarter = size / 6;
 	if (size % 2)
 		mid = sorted_tab[quarter];
 	else
